@@ -1,0 +1,15 @@
+main {
+  margin-top: 50px;
+}
+
+nav a {
+  font-size: 30px;
+}
+
+nav a:hover {
+  color: rgb(177, 177, 177) !important;
+}
+
+table {
+  margin-top: 10px !important;
+}
