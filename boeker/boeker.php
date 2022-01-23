@@ -1,5 +1,7 @@
-
-<?php require "../functions.php"; ?>
+<?php 
+  require "../connectie.php";
+  require "../functions.php";
+  ?>
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -18,15 +20,13 @@
   <?php include_once "nav.html" ?>
   <main>
     <h1 class="display-1 d-flex justify-content-center">Boeker</h1>
-    <div class="d-flex justify-content-center">
-      <a class="btn btn-primary" href="bowlingbaanform.php?crud=insert">Nieuwe Klant Toevoegen</a>
-    </div>
     <div class="container">
       <div class="row justify-content-center">
-        <table style="max-width: 600px" class="table table-primary table-hover text-center align-middle">
+        <table style="max-width: 1000px" class="table table-primary table-hover text-center align-middle">
           <tr>
             <th>Naam</th>
             <th>Adres</th>
+            <th>Postcode</th>
             <th>Telefoon Nummer</th>
             <th>Email</th>
             <th>Update</th>
@@ -34,7 +34,7 @@
           </tr>
           <?php
           $query = 'SELECT * FROM `boeker` ORDER BY `id` ASC';
-          $stmt = select($query);
+          $stmt = selectAll($pdo, $query);
           while ($row = $stmt->fetch()) {
             $id = $row['id'];
             $naam = $row['naam'];
@@ -44,12 +44,13 @@
             $email = $row['email'];
           ?>
             <tr>
-              <td><?= $naam ?> personen</td>
+              <td><?= $naam ?></td>
               <td><?= $adres ?></td>
+              <td><?= $postcode ?></td>
               <td><?= $telefoonnummer ?></td>
               <td><?= $email ?></td>
-              <td><a class="btn btn-primary" href="boekerform.php?id=<?= $id ?>&maxpersonen=<?= $maxPersonen ?>&prijs=<?= $prijs ?>&crud=update">Update</a></td>
-              <td><a class="btn btn-primary" href="bowlingbaancrud.php?id=<?= $id ?>&crud=delete">Verwijderen</a></td>
+              <td><a class="btn btn-primary" href="boekerform.php?id=<?=$id?>&naam=<?=$naam?>&adres=<?=$adres?>&adres=<?=$adres?>&postcode=<?=$postcode?>&telefoonnummer=<?=$telefoonnummer?>&email=<?=$email?>&crud=update">Update</a></td>
+              <td><a class="btn btn-primary" href="boekercrud.php?id=<?=$id?>&crud=delete">Verwijderen</a></td>
             </tr>
           <?php } ?>
         </table>

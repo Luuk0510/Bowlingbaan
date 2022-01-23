@@ -1,5 +1,6 @@
 <?php
-require "../functions.php";
+  require "../connectie.php";
+  require "../functions.php";
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -34,7 +35,7 @@ require "../functions.php";
           </tr>
           <?php
           $query = 'SELECT * FROM `baan` ORDER BY `id` ASC';
-          $stmt = select($query);
+          $stmt = selectAll($pdo, $query);
           while ($row = $stmt->fetch()) {
             $id = $row['id'];
             $maxPersonen = $row['max_personen'];

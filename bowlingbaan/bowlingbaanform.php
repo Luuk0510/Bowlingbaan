@@ -12,6 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/x-icon" href="../favicon/favicon.png">
   <title>Bowlingbaan <?=$crud?></title>
 </head>
 
@@ -28,15 +29,15 @@
         <h1><?= $crud ?></h1>
       </div>
       <div class="form-floating">
-        <input type="number" name="maxpersonen" class="form-control">
+        <input type="number" min="0" name="maxpersonen" class="form-control" required>
         <label for="floatingInput">Maximale personen</label>
       </div>
       <div class="form-floating">
-        <input type="number" name="prijs" class="form-control">
+        <input type="number" min="0" step=".01" name="prijs" class="form-control" required>
         <label for="floatingPassword">Prijs</label>
       </div>
       <br>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Toevoegen</button>
     </form>
   </div>
   <?php
@@ -54,15 +55,15 @@
         <h1><?= $crud ?></h1>
       </div>
       <div class="form-floating">
-        <input type="number" class="form-control" name="maxpersonen" value="<?= $maxPersonen ?>">
+        <input type="number" min="0" class="form-control" name="maxpersonen" value="<?= $maxPersonen ?>" required>
         <label for="floatingInput">Maximale personen</label>
       </div>
       <div class="form-floating">
-        <input type="number" class="form-control" name="prijs" value="<?= $prijs ?>">
+        <input type="number" min="0" step=".01" class="form-control" name="prijs" value="<?= $prijs ?>" required>
         <label for="floatingPassword">Prijs</label>
       </div>
       <br>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Toevoegen</button>
     </form>
   </div>
   <?php
